@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="23504" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_12" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="23506"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="SearchTextField" customModule="MovieOpenAPI" customModuleProvider="target">
+            <connections>
+                <outlet property="textfield" destination="ePh-w2-HLe" id="2fC-3T-8KX"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="tEH-Bf-pRK">
+            <rect key="frame" x="0.0" y="0.0" width="420" height="95"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <subviews>
+                <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Search Movies.." textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ePh-w2-HLe">
+                    <rect key="frame" x="15" y="22.666666666666671" width="390" height="50"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="50" id="ufY-1V-IH1"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <textInputTraits key="textInputTraits"/>
+                </textField>
+            </subviews>
+            <viewLayoutGuide key="safeArea" id="V1Z-qD-NL2"/>
+            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+            <constraints>
+                <constraint firstItem="ePh-w2-HLe" firstAttribute="centerY" secondItem="tEH-Bf-pRK" secondAttribute="centerY" id="QDp-EA-uss"/>
+                <constraint firstItem="ePh-w2-HLe" firstAttribute="leading" secondItem="tEH-Bf-pRK" secondAttribute="leading" constant="15" id="Tdg-6s-Ozf"/>
+                <constraint firstAttribute="trailing" secondItem="ePh-w2-HLe" secondAttribute="trailing" constant="15" id="koB-Fz-LOm"/>
+                <constraint firstItem="ePh-w2-HLe" firstAttribute="centerX" secondItem="tEH-Bf-pRK" secondAttribute="centerX" id="qvM-Ec-Q3x"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <point key="canvasLocation" x="293.12977099236639" y="-215.14084507042256"/>
+        </view>
+    </objects>
+    <resources>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>

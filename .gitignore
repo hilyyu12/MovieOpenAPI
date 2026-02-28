@@ -1,0 +1,20 @@
+//
+//  .gitignore
+//  MovieOpenAPI
+//
+//  Created by Abiyyu on 28/02/26.
+//
+
+# Xcode
+build/
+DerivedData/
+*.xcworkspace
+xcuserdata/
+*.xcuserstate
+
+# Xcode user data
+MovieOpenAPI.xcodeproj/xcuserdata/
+
+# SwiftPM
+.build/
+

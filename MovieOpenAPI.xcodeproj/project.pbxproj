@@ -6,8 +6,15 @@
 	objectVersion = 77;
 	objects = {
 
+/* Begin PBXBuildFile section */
+		022E834E2F52BC550071EB6C /* Essay.txt in Resources */ = {isa = PBXBuildFile; fileRef = 022E834D2F52BC440071EB6C /* Essay.txt */; };
+		022E83AD2F52E7570071EB6C /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = 022E83AC2F52E74D0071EB6C /* .gitignore */; };
+/* End PBXBuildFile section */
+
 /* Begin PBXFileReference section */
 		022E83352F52BC340071EB6C /* MovieOpenAPI.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MovieOpenAPI.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		022E834D2F52BC440071EB6C /* Essay.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = Essay.txt; sourceTree = "<group>"; };
+		022E83AC2F52E74D0071EB6C /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
@@ -45,6 +52,8 @@
 		022E832C2F52BC340071EB6C = {
 			isa = PBXGroup;
 			children = (
+				022E83AC2F52E74D0071EB6C /* .gitignore */,
+				022E834D2F52BC440071EB6C /* Essay.txt */,
 				022E83372F52BC340071EB6C /* MovieOpenAPI */,
 				022E83362F52BC340071EB6C /* Products */,
 			);
@@ -122,6 +131,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				022E83AD2F52E7570071EB6C /* .gitignore in Resources */,
+				022E834E2F52BC550071EB6C /* Essay.txt in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

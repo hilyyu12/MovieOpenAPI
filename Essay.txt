@@ -1,0 +1,77 @@
+//
+//  Essay.txt
+//  MovieOpenAPI
+//
+//  Created by Abiyyu on 28/02/26.
+//
+
+1.  - Struct digunakan ukuk model data sederhana, immutable dan taidk membutuhkan inharitance
+    - Class membutuhkan reference semantic, inheritance, dan lifecyle UIManagedDocument
+A. secaramutablilty STRUCT saat di assign atau dikirim ke function/method data akan di copy, sedangkan Class saat di assign hanya reference nya saja bukan datanya dan perubahan instance akan mempengaruhi reference lain
+B. 1. memory dan perfomace:
+    struct : lebih ringan, cocok untuk response API
+    class: ada resiko memory leak
+    2. Thread safety:
+    struct lebih aman multi-threading
+    class: lebih rentan race condition jika shared reference
+
+2.  1. trigger request
+        biasanya dipanggil ketika viewDidLoad() atau user action seperti click button atau pull refresh
+    2. membuat network request
+    menggunakan URLSession.shared.dataTask(with: ) yang berisi URL, HTTPMethod, Header, dan request parameter.
+    3. kondisi
+    loading
+    sebelum request dikirim buat state menjadi .loading, di UI menampilkan gif loading jika ada dan menonaktifkan view selama proses berlangsung
+    error
+    ada beberapa jenis error seperti Newtwork Error, HTTP Error, dan Decode error. network error biasanya tampilkan ui untuk mencoba lagi dengan message periksa network, jika http kemungkinaan service mati artinya mesage akan minta cek ulang berkala
+    sukses
+    jika sukses decode response menggunaka JSONDecoder dan simpan di viewmodel/state lalu update UI ke view UIViewController
+3. dalam pengembangan iOS sekarang agar clean dan mudah di maintain menggunakan clean architecture seperti MVVM atau VIPER.
+A. dari struktur file MVVM dan Viper mudah dipahami dan tidak bercampur antara bisnis logic UI dll
+B. jika MVVM
+terdapat view yang bertanggung jawab sebagai render UI, binding VIewModel, dan handle user interaction.
+lalu ada ViewModel yang bertanggung jawab atas bisnis logic, memanggil service, dan prepare data untuk di tampilkan di view.
+dan terakhir model yang di gunakan untuk representasi data yang digunakan, dan model response dari request API.
+4.  func shortTotal(_ Commit: [Int]) -> (filters: [Int], sorted: [Int], total: Int) {
+    // A. hapus nilai 0
+    let filtered = Commit.filter{ $0 != 0}
+    
+    //B. shorting dari terbersar ke kecil
+    let shorted = filtered.sorted(by: >)
+    
+    //C. Jumlah total
+    let total = filtered.reduce(0, +)
+    
+    return (filters, shorted, total)
+}
+    // Cara Pakai
+let commits = [3, 0, 5, 2, 0, 7, 1]
+let result = shortTotal(Commit: commits)
+
+// tampil filter
+print("filter : \(result.filters)")
+// tapilkan short
+print("shorted : \(result.sorted)")
+// tampilkan total
+print("total : \(result.total)")
+
+menurut saya memakai cara tersebut lebih efektif, clean, mengurangi compilers hingga meningkatkan performa.
+cara ini dipilih karena requiremnt di berikan sudah jelas sehingga tidak perlu untuk membuat function 1 per 1 yang membuat compilers bekerja lebih
+
+5. func validateUser(_ user: [String: String?]) -> String {
+    guard let nameOptional = user["name"],
+          let name = nameOptional,
+          !name.isEmpty
+    else { return "Error: Name is Missing" }
+    
+    guard let emailOptional = user["email"],
+          let email = emailOptional,
+          !email.isEmpty
+    else { return "Error: Email is Missing" }
+    
+    let role = user["role"] ?? "role unknown"
+    
+    return "User \(name) dengan role \(role) valid"
+}
+
+disini saya membuat guard untuk validasi name dan email, dan juga untuk mendefinisikan string object dari user. jika salah satu name atau email tidak ada akan muncul error message dari return masing masing guard. untuk role saya membuat optional berisi role uknown jika tidak ada. karena tidak diminta validasi untuk role.
