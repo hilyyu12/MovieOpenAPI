@@ -9,6 +9,9 @@ import Foundation
 import Combine
 
 protocol MovieServiceProtocol {
-    func fetchPopular(page: Int) -> AnyPublisher<[Movie], Error>
-    func searchMovie(query: String, page: Int) -> AnyPublisher<[Movie], Error>
+    func fetchGenres() -> AnyPublisher<[Genre], Error>
+    func discoverMovies(genreId: Int, page: Int) -> AnyPublisher<MovieResponse, Error>
+    func searchMovie(query: String, page: Int) -> AnyPublisher<MovieResponse, Error>
+    func fetchReviews(movieId: Int, page: Int) -> AnyPublisher<ReviewResponse, Error>
+    func fetchVideos(movieId: Int) -> AnyPublisher<[Video], Error>
 }

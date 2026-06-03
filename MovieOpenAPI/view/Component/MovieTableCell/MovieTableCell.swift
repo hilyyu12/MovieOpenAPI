@@ -31,22 +31,9 @@ class MovieTableCell: UITableViewCell {
     func configure(with movie: Movie) {
         titleLabel.text = movie.title
         if let path = movie.posterPath {
-            let urlString = APIConfig.imageBaseURL + path
-            loadImage(from: urlString)
+            posterImageView.setImage(from: APIConfig.imageBaseURL + path)
         } else {
             posterImageView.image = UIImage(systemName: "photo")
         }
-    }
-    
-    private func loadImage(from urlString: String) {
-        guard let url = URL(string: urlString) else { return }
-        
-        URLSession.shared.dataTask(with: url) { [weak self] data, _, _ in
-            guard let data = data else { return }
-            
-            DispatchQueue.main.async {
-                self?.posterImageView.image = UIImage(data: data)
-            }
-        }.resume()
     }
 }
